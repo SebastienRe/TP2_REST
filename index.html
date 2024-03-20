@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creer un contact</title>
+    <script>
+        function gotoback(){
+            if (document.getElementById("contact").value == "") {
+                alert("Veuillez saisir un contact");
+                return;
+            }
+            window.location.href = "carnet/supp/" + document.getElementById("contact").value;
+        }
+    </script>
+</head>
+<body>
+
+    <a href="carnet">Carnet</a><br>
+    <input id="contact" type="text"/>
+    <input type="button" value="Supprimer" onclick="gotoback()"/><br>
+    <a href="carnet/dernier">Dernier contact supprimé</a><br>
+    <a href="carnet/listCookies">Liste des cookies</a>
+</body>
+</html>
