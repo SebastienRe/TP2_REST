@@ -1,4 +1,4 @@
-package client;
+package Q7.client;
 
 import Q7.Contact;
 import jakarta.ws.rs.client.Client;
