@@ -1,6 +1,6 @@
 package client;
 
-import Q6.Contact;
+import Q7.Contact;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -12,14 +12,16 @@ public class RestClient {
         try {
             Client client = ClientBuilder.newClient();
 
-            Contact newContact = new Contact("Alice", "123456");
+            Contact newContact = new Contact("Jane", "4");
             System.out.println("nom : " + newContact.getNom() + " - numero : " + newContact.getNumero());
 
-            Response response = client.target("http://localhost:8080/Q6/carnet/addContact")
+            Response response = client.target("http://localhost:8080/Q7/carnet/updateContact/" + newContact.getNom())
                     .request()
-                    .post(Entity.xml(newContact));
+                    .put(Entity.xml(newContact));
 
             String message = response.readEntity(String.class);
+            // display response status
+            System.out.println(response.getStatus());
             System.out.println(message);
 
             response.close();
