@@ -1,7 +1,9 @@
 package Q12.client;
 
+import Q12.Contact;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.Response;
 
 public class RestClient {
@@ -10,13 +12,14 @@ public class RestClient {
         try {
             Client client = ClientBuilder.newClient();
 
-            Response response = client.target("http://localhost:8080/Q12/carnet/deleteContact/Jane")
+            Contact newContact = new Contact("Alice", "123456");
+            System.out.println("nom : " + newContact.getNom() + " - numero : " + newContact.getNumero());
+
+            Response response = client.target("http://localhost:8080/Q12/carnet/addContact")
                     .request()
-                    .delete();
+                    .post(Entity.xml(newContact));
 
             String message = response.readEntity(String.class);
-            // display response status
-            System.out.println(response.getStatus());
             System.out.println(message);
 
             response.close();

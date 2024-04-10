@@ -3,13 +3,20 @@ package Q12;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Carnet {
     private List<Contact> contacts;
 
     public Carnet() {
         contacts = new ArrayList<>();
-        contacts.add(new Contact("John", "2"));
-        contacts.add(new Contact("Jane", "3"));
+    }
+
+    @XmlElement
+    public List<Contact> getContacts() {
+        return contacts;
     }
 
     public boolean isEmpty() {
@@ -62,5 +69,4 @@ public class Carnet {
             }
         }
     }
-
 }

@@ -139,4 +139,36 @@ public class Annuaire {
         }
         return sb.toString();
     }
+
+    @GET
+    @Path("/loadCarnet")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String loadCarnet() {
+        try {
+            System.out.println("le carnet " + carnet);
+            CarnetService service = new CarnetService();
+            carnet = service.loadCarnet();
+            System.out.println("le carnet " + carnet);
+            return "Carnet loaded successfully";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Failed to load carnet";
+        }
+    }
+
+    @GET
+    @Path("/saveCarnet")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String saveCarnet() {
+        try {
+            CarnetService service = new CarnetService();
+            System.out.println("le carnet " + Annuaire.carnet);
+            service.saveCarnet(Annuaire.carnet);
+            System.out.println("le carnet " + Annuaire.carnet);
+            return "Carnet saved successfully";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Failed to save carnet";
+        }
+    }
 }

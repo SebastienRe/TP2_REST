@@ -1,5 +1,6 @@
 package Q12;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -16,10 +17,12 @@ public class Contact {
         this.numero = numero;
     }
 
+    @XmlElement
     public String getNom() {
         return nom;
     }
 
+    @XmlElement
     public String getNumero() {
         return numero;
     }
