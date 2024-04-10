@@ -5,13 +5,22 @@
 </head>
 <body>
     <h1>Creer un contact</h1>
-    <a href="/Q12/">Carnet</a><br>
+    <a href="/Q13/">Carnet</a><br>
     <form id="createContactForm" action="carnet/addContact" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br><br>
         <label for="numero">Numéro :</label>
         <input type="text" id="numero" name="numero" required><br><br>
-        <input type="submit" value="Créer">
+        <input type="button" value="Créer" onclick="submitForm('createContactForm')">
     </form>
 </body>
+<script>
+    function submitForm(formId) {
+        //naviger vers carnets/addContact/nom/numero
+        var form = document.getElementById(formId);
+        var nom = form.nom.value;
+        var numero = form.numero.value;
+        window.location.href = "/Q13/carnet/addContact/" + nom + "/" + numero;
+    }
+</script>
 </html>

@@ -1,0 +1,10 @@
+<glassfish-web-app>
+    <security-role-mapping>
+        <role-name>appusers</role-name>
+        <group-name>appusers</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>appadmin</role-name>
+        <group-name>appadmin</group-name>
+    </security-role-mapping>
+</glassfish-web-app>
