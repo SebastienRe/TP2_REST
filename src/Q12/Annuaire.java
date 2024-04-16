@@ -34,12 +34,12 @@ public class Annuaire {
     @GET
     @Path("/{nom}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getNumero(@PathParam("nom") String nom) throws ContactNotFoundPlainException {
+    public Response getNumero(@PathParam("nom") String nom) throws ContactNotFoundPlainException {
         System.out.println("nom : " + nom);
         String numero = carnet.getNumeroWithNom(nom);
         if (numero == null)
-            throw new ContactNotFoundException();
-        return numero;
+            return Response.status(Response.Status.NOT_FOUND).entity("Ce contact est inconnu").build(); // 404
+        return Response.ok(numero).entity(numero).build(); // 200
     }
 
     @POST

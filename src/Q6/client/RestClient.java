@@ -15,7 +15,7 @@ public class RestClient {
             Contact newContact = new Contact("Alice", "123456");
             System.out.println("nom : " + newContact.getNom() + " - numero : " + newContact.getNumero());
 
-            Response response = client.target("http://localhost:8080/Q6/carnet/addContact")
+            Response response = client.target("http://localhost:8080/TP2Q6/carnet/addContact")
                     .request()
                     .post(Entity.xml(newContact));
 

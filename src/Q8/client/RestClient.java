@@ -10,7 +10,7 @@ public class RestClient {
         try {
             Client client = ClientBuilder.newClient();
 
-            Response response = client.target("http://localhost:8080/Q8/carnet/deleteContact/Jane")
+            Response response = client.target("http://localhost:8080/TP2Q8/carnet/deleteContact/Jane")
                     .request()
                     .delete();
 

@@ -10,9 +10,9 @@ public class RestClient {
         try {
             Client client = ClientBuilder.newClient();
 
-            Response response = client.target("http://localhost:8080/Q10/carnet/deleteContact/Jane")
+            Response response = client.target("http://localhost:8080/TP2Q10/carnet/Jane")
                     .request()
-                    .delete();
+                    .get();
 
             String message = response.readEntity(String.class);
             // display response status

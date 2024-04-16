@@ -15,7 +15,7 @@ public class RestClient {
             Contact newContact = new Contact("Jane", "4");
             System.out.println("nom : " + newContact.getNom() + " - numero : " + newContact.getNumero());
 
-            Response response = client.target("http://localhost:8080/Q7/carnet/updateContact/" + newContact.getNom())
+            Response response = client.target("http://localhost:8080/TP2Q7/carnet/updateContact/" + newContact.getNom())
                     .request()
                     .put(Entity.xml(newContact));
 
